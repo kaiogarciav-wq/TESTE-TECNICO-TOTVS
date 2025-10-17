@@ -1,0 +1,22 @@
+<!-- Exemplo de login.component.html -->
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="username">Nome de Usuário</label>
+    <input id="username" type="text" formControlName="username"> <!-- <-- Deve ser formControlName="username" -->
+    <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+      <div *ngIf="f.username.errors['required']">Nome de usuário é obrigatório</div>
+    </div>
+  </div>
+  <div>
+    <label for="password">Senha</label>
+    <input id="password" type="password" formControlName="password">
+    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+      <div *ngIf="f.password.errors['required']">Senha é obrigatória</div>
+    </div>
+  </div>
+  <button type="submit" [disabled]="loading">
+    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+    Entrar
+  </button>
+  <div *ngIf="error" class="alert alert-danger mt-3">{{ error }}</div>
+</form>

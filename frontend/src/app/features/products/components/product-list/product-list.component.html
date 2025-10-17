@@ -1,0 +1,100 @@
+<div class="product-page-wrapper">
+  <div class="product-main-card">
+
+    <div class="card-header">
+      <h2>Lista de Produtos</h2>
+    </div>
+
+    <div class="card-controls">
+      <div class="control-group-left">
+        <button (click)="createNewProduct()" class="add-button">
+          <i class="fas fa-plus-circle"></i> Novo Produto
+        </button>
+      </div>
+    </div>
+
+    <div class="card-content">
+      <div *ngIf="loading" class="loading-message">
+        <app-loading-spinner></app-loading-spinner>
+        <p>Carregando produtos...</p>
+      </div>
+
+      <div *ngIf="!loading && error" class="error-message">
+        <i class="fas fa-exclamation-triangle"></i> {{ error }}
+      </div>
+
+      <div *ngIf="!loading && !error && products.length === 0" class="no-products-message">
+        Nenhum produto encontrado.
+      </div>
+
+      <table *ngIf="!loading && !error && products.length > 0" class="product-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>SKU</th>
+            <th>PRODUTO</th>
+            <th>PREÇO</th>
+            <th class="text-center">ESTOQUE</th>
+            <th class="text-center">LOCAIS</th>
+            <th class="text-center">VENCIMENTO</th>
+            <!-- <th class="text-center">STATUS</th> -->
+            <!-- <th class="text-center">CATEGORIA</th> -->
+            <th class="text-center">AÇÕES</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of products">
+            <td>{{ product.id }}</td>
+            <td>{{ product.sku || 'N/A' }}</td>
+            <td class="product-name-cell">
+              <img *ngIf="product.imageUrl" [src]="product.imageUrl" [alt]="product.name" class="product-thumbnail">
+              <span>{{ product.name }}</span>
+              <span *ngIf="product.unit && product.unit !== 'UN'" class="product-unit">({{ product.unit }})</span>
+            </td>
+            <td>{{ product.price | currency:'BRL':'symbol':'1.2-2' }}</td>
+            <td class="stock-status-cell">
+              <span
+                [class]="getStockStatusClass(product.totalStock, product.minStockLevel, product.maxStockLevel)"
+                [title]="getStockTooltip(product)"
+              >
+                <i [class]="getStockIcon(product.totalStock, product.minStockLevel, product.maxStockLevel)"></i>
+              </span>
+            </td>
+            <td class="location-status-cell">
+              <span [title]="getLocationTooltip(product)">
+                <i class="fas fa-warehouse"></i> {{ product.activeLocations }}
+              </span>
+            </td>
+            <td [class]="getDueDateClass(product.nextDueDate)"
+                [title]="'Próximo vencimento: ' + (product.nextDueDate ? (product.nextDueDate | date:'shortDate') : 'N/A')"
+                class="due-date-status-cell text-center">
+              <ng-container *ngIf="product.nextDueDate; else noDueDateTemplate">
+                <span [class]="getDueDateClass(product.nextDueDate) + ' due-date-circle-icon'">
+                  <i [class]="getDueDateIcon(product.nextDueDate)"></i>
+                </span>
+              </ng-container>
+              <ng-template #noDueDateTemplate>
+                <span class="due-date-none due-date-circle-icon" title="Nenhuma data de vencimento registrada">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+              </ng-template>
+            </td>
+            <!-- <td class="text-center">{{ product.status || 'N/A' }}</td> -->
+            <!-- <td class="text-center">{{ product.category || 'N/A' }}</td> -->
+            <td class="actions">
+              <button (click)="editProduct(product.id)" class="edit-button" title="Editar Produto">
+                <i class="fas fa-edit"></i>
+              </button>
+              <button (click)="deleteProduct(product.id)" class="delete-button" title="Excluir Produto">
+                <i class="fas fa-trash-alt"></i>
+              </button>
+              <button (click)="viewDetailedStock(product.id)" class="detail-button" title="Ver Detalhes do Estoque">
+                  <i class="fas fa-info-circle"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

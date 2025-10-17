@@ -1,0 +1,41 @@
+# Build outputs
+bin/
+obj/
+
+# Visual Studio / Rider / IDEs
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Logs
+*.log
+logs/
+backend-logs/
+
+# Runtime files
+*.pid
+*.seed
+*.db
+
+# NuGet packages
+*.nupkg
+*.snupkg
+.nuget/
+
+# Docker overrides
+docker-compose.override.yml
+
+# ASP.NET temp files
+*.vspscc
+*.dbmdl
+
+# Secrets / certificates
+*.pfx
+*.key
+*.env
+
+# OS/System files
+*.DS_Store
+Thumbs.db

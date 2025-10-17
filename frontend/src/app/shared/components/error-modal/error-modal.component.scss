@@ -1,0 +1,73 @@
+.error-modal-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  margin: 0 auto;
+  position: relative;
+  text-align: center;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #888;
+  cursor: pointer;
+  padding: 5px;
+  line-height: 1;
+
+  &:hover {
+    color: #333;
+  }
+}
+
+.icon-wrapper {
+  margin-bottom: 20px;
+  color: #f44336; /* Vermelho para o ícone de erro */
+}
+
+.error-icon {
+  font-size: 60px;
+}
+
+.modal-title {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.modal-message {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 25px;
+  line-height: 1.5;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.retry-button {
+  background-color: #2196f3; /* Azul para o botão de tentar novamente */
+  color: rgb(0, 0, 0);
+  border: none;
+  border-radius: 5px;
+  padding: 12px 25px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #1976d2;
+  }
+}

@@ -1,0 +1,129 @@
+/* src/app/login/login.component.scss */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f0f2f5 0%, #c9d6df 100%); /* Fundo suave com gradiente */
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+}
+
+div { // Este div é o container principal do seu HTML
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 15px; /* Bordas mais arredondadas */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Sombra mais pronunciada */
+  width: 100%;
+  max-width: 400px; /* Largura máxima para o formulário */
+  text-align: center;
+  transition: all 0.3s ease-in-out; /* Transição para possíveis interações futuras */
+}
+
+h2 {
+  color: #2c3e50; /* Um tom de azul escuro */
+  margin-bottom: 30px; /* Espaçamento maior abaixo do título */
+  font-weight: 600; /* Mais destaque */
+  font-size: 2em; /* Tamanho maior para o título */
+}
+
+form div { /* Cada div que contém label e input */
+  margin-bottom: 25px; /* Espaçamento entre os grupos de input */
+  text-align: left; /* Alinhar label e input à esquerda dentro do grupo */
+  padding: 0; /* Remover padding do div interno para não afetar o layout */
+  background: none; /* Remover background-color de divs internos */
+  box-shadow: none; /* Remover sombra de divs internos */
+  width: auto; /* Remover largura do div interno */
+  max-width: none; /* Remover max-width do div interno */
+  border-radius: 0;
+}
+
+label {
+  display: block; /* Para a label ficar acima do input */
+  margin-bottom: 8px; /* Espaçamento entre a label e o input */
+  color: #555;
+  font-weight: 500;
+  font-size: 0.95em;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 12px 15px; /* Mais padding para os inputs */
+  border: 1px solid #dcdfe6; /* Borda sutil */
+  border-radius: 8px; /* Bordas arredondadas para os inputs */
+  font-size: 1em;
+  color: #333;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+  &:focus {
+    border-color: #4a90e2; /* Borda azul no foco */
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2); /* Sombra suave no foco */
+    outline: none; /* Remover outline padrão */
+  }
+}
+
+button[type="submit"] {
+  width: 100%;
+  padding: 14px; /* Mais padding para o botão */
+  background-color: #4a90e2; /* Azul primário para o botão */
+  color: white;
+  border: none;
+  border-radius: 8px; /* Bordas arredondadas para o botão */
+  font-size: 1.1em; /* Texto do botão um pouco maior */
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 20px; /* Espaçamento acima do botão */
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    background-color: #357ABD; /* Tom de azul mais escuro no hover */
+    transform: translateY(-2px); /* Pequeno efeito de elevação */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15); /* Sombra mais intensa no hover */
+  }
+
+  &:active {
+    transform: translateY(0); /* Retorna à posição original ao clicar */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra mais sutil ao clicar */
+  }
+}
+
+p.errorMessage { /* Estilo para a mensagem de erro */
+  color: #e74c3c; /* Vermelho vibrante para erros */
+  margin-top: 20px;
+  font-size: 0.9em;
+  animation: shake 0.5s; /* Animação sutil de "tremor" */
+}
+
+/* Animação para feedback de erro */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+  20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+// Ocultar o div com o *ngIf="errorMessage" quando não há mensagem para evitar espaçamento indesejado
+p[style*="color: red"] {
+  color: #e74c3c; /* Apenas para garantir que a cor vermelha prevaleça caso o style inline exista */
+  margin-top: 20px;
+  font-size: 0.9em;
+  animation: shake 0.5s;
+}
+
+// Estilos para links adicionais (e.g., "Esqueceu a senha?") se você adicionar futuramente
+a {
+  color: #4a90e2;
+  text-decoration: none;
+  font-size: 0.9em;
+  margin-top: 15px;
+  display: block; // Para o link ocupar sua própria linha
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: #357ABD;
+    text-decoration: underline;
+  }
+}

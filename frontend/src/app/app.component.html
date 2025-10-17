@@ -1,0 +1,17 @@
+<header class="app-header">
+  <h1>{{ title }}</h1>
+  <nav>
+    <a routerLink="/products" routerLinkActive="active">Produtos</a>
+  </nav>
+</header>
+
+<main class="app-main">
+  <router-outlet></router-outlet>
+</main>
+
+<footer class="app-footer">
+  <p>&copy; {{ currentYear }} Totvs Fintech Project</p>
+</footer>
+
+<app-loading-spinner></app-loading-spinner> <!-- Adicione aqui -->
+<app-toast></app-toast>                   <!-- Adicione aqui -->

@@ -1,0 +1,348 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+.product-page-wrapper {
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+  background-color: #f5f7fa;
+  min-height: calc(100vh - 60px);
+}
+
+.product-main-card {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.card-header {
+  padding: 25px 30px;
+  border-bottom: 1px solid #eef2f4;
+  h2 {
+    color: #2c3e50;
+    margin: 0;
+    font-weight: 600;
+    font-size: 1.8em;
+  }
+}
+
+.card-controls {
+  padding: 20px 30px;
+  border-bottom: 1px solid #eef2f4;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px; // Espaçamento geral entre os grupos
+
+  .control-group-left, .control-group-right {
+    display: flex;
+    align-items: center;
+    gap: 15px; // Espaçamento entre itens dentro de um grupo
+    flex-wrap: wrap; // Para responsividade de itens dentro dos grupos
+  }
+
+  .add-button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 10px rgba(40, 167, 69, 0.2);
+
+    &:hover {
+      background-color: #218838;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(40, 167, 69, 0.3);
+    }
+    &:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 5px rgba(40, 167, 69, 0.1);
+    }
+  }
+
+  .search-bar {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+
+    input {
+      border: none;
+      padding: 10px 15px;
+      font-size: 1em;
+      outline: none;
+      flex-grow: 1; // Permite que o input preencha o espaço
+      min-width: 150px; // Garante um tamanho mínimo para o input
+    }
+
+    button {
+      background-color: #f8f9fa;
+      border: none;
+      padding: 10px 12px;
+      cursor: pointer;
+      color: #6c757d;
+      font-size: 1em;
+      transition: background-color 0.2s ease, color 0.2s ease;
+
+      &:hover {
+        background-color: #e2e6ea;
+        color: #495057;
+      }
+
+      &.advanced-search-button {
+        border-left: 1px solid #eef2f4;
+      }
+    }
+  }
+
+  .export-button {
+    border: 1px solid;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.95em;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+
+    &.pdf-button {
+      background-color: #dc3545; // Vermelho do PDF
+      color: white;
+      border-color: #dc3545;
+      &:hover {
+        background-color: #c82333;
+        border-color: #bd2130;
+      }
+    }
+
+    &.xls-button {
+      background-color: #28a745; // Verde do Excel
+      color: white;
+      border-color: #28a745;
+      &:hover {
+        background-color: #218838;
+        border-color: #1e7e34;
+      }
+    }
+  }
+
+  .active-filters {
+    span {
+      display: inline-flex;
+      align-items: center;
+      background-color: #e0f2ff;
+      color: #347deb;
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 0.9em;
+      font-weight: 500;
+      gap: 8px;
+
+      i {
+        cursor: pointer;
+        color: #2196f3;
+        &:hover {
+          color: #0d47a1;
+        }
+      }
+    }
+  }
+}
+
+.card-content {
+  // Padding para o conteúdo principal, principalmente a tabela
+  // A tabela em si não precisa de padding extra se os THs e TDs já têm.
+  // Se houver elementos antes da tabela, talvez precise de padding-left/right.
+}
+
+
+.loading-message, .error-message, .no-products-message {
+  text-align: center;
+  padding: 30px;
+  border-radius: 0;
+  margin: 0;
+  font-size: 1.1em;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  background-color: transparent;
+  color: #555;
+}
+
+.loading-message { color: #347deb; }
+.error-message { color: #e74c3c; }
+.no-products-message { color: #7f8c8d; }
+
+
+.product-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  box-shadow: none;
+  background-color: transparent;
+  border-radius: 0;
+  overflow: hidden;
+
+  th, td {
+    border-bottom: 1px solid #eef2f4;
+    padding: 15px 30px;
+    text-align: left;
+    vertical-align: middle;
+  }
+
+  th {
+    background-color: #f8f9fb;
+    color: #6a7c8c;
+    font-weight: 600;
+    font-size: 0.95em;
+    text-transform: uppercase;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+
+  thead tr:first-child th:first-child { border-top-left-radius: 0; }
+  thead tr:first-child th:last-child { border-top-right-radius: 0; }
+  tbody tr:last-child td:first-child { border-bottom-left-radius: 12px; }
+  tbody tr:last-child td:last-child { border-bottom-right-radius: 12px; border-bottom: none; }
+
+
+  tbody tr:nth-child(even) {
+    background-color: #fefefe;
+  }
+
+  tbody tr:hover {
+    background-color: #e6f7ff;
+    transition: background-color 0.2s ease-in-out;
+    cursor: pointer;
+  }
+
+  .text-center { text-align: center; }
+
+  .product-name-cell {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-weight: 500;
+    color: #4a5568;
+  }
+
+  .product-thumbnail {
+    width: 45px;
+    height: 45px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+  }
+
+  .product-unit {
+    font-size: 0.7em;
+    color: #2671aa;
+    margin-left: 8px;
+    background-color: #ebf1f5;
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-weight: 600;
+  }
+
+  .stock-status-cell, .location-status-cell, .due-date-status-cell {
+    text-align: center;
+  }
+
+  .stock-status-cell span, .location-status-cell span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border-radius: 20px;
+      transition: all 0.2s ease;
+      cursor: help;
+      font-size: 1.1em;
+      font-weight: 600;
+  }
+
+  .stock-critical { color: #e74c3c; background-color: #fdd; }
+  .stock-low { color: #f39c12; background-color: #fff8e1; }
+  .stock-normal { color: #27ae60; background-color: #e6ffee; }
+  .stock-high { color: #3498db; background-color: #e0f2ff; }
+  .stock-unknown { color: #95a5a6; background-color: #f0f2f5; }
+
+  .stock-status-cell i, .location-status-cell i {
+      min-width: 22px;
+      text-align: center;
+  }
+
+  .location-status-cell span { color: #3498db; background-color: #e0f2ff; }
+  .location-status-cell i { color: #8d9194; }
+  .location-none { color: #95a5a6; background-color: #f0f2f5; }
+
+  td.due-date-expired { background-color: #ffe6e6; }
+  td.due-date-critical { background-color: #fff5e6; }
+  td.due-date-soon { background-color: #fffde6; }
+  td.due-date-normal { background-color: #e6ffee; }
+  td.due-date-none { background-color: #f0f2f5; }
+
+  .due-date-circle-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 15px;
+      height: 15px;
+      border-radius: 10%;
+      font-size: 1.1em;
+      transition: all 0.2s ease;
+      cursor: help;
+      margin: 0 auto;
+  }
+
+  .due-date-expired.due-date-circle-icon { background-color: #e74c3c; i { color: #fff; } }
+  .due-date-critical.due-date-circle-icon { background-color: #e67e22; i { color: #fff; } }
+  .due-date-soon.due-date-circle-icon { background-color: #f1c40f; i { color: #fff; } }
+  .due-date-normal.due-date-circle-icon { background-color: #27ae60; i { color: #fff; } }
+  .due-date-none.due-date-circle-icon { background-color: #95a5a6; i { color: #fff; } }
+
+ .actions {
+  white-space: nowrap;
+  text-align: center;
+
+  button {
+    border: none;
+    cursor: pointer;
+    font-size: 1.3em;
+    margin: 0 6px;
+    padding: 8px;
+    border-radius: 50%;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    outline: none;
+
+    &:hover {
+      background-color: #ebf1f5;
+      color: #2c3e50;
+      transform: translateY(-1px);
+    }
+    &:active {
+      transform: translateY(0);
+    }
+  }
+
+  .edit-button { background-color: #3498db; i { color: #fff; } &:hover { background-color: #2980b9; i { color: #fff; } } }
+  .delete-button { background-color: #e74c3c; i { color: #fff; } &:hover { background-color: #c0392b; i { color: #fff; } } }
+  .detail-button { background-color: #95a5a6; i { color: #fff; } &:hover { background-color: #7f8c8d; i { color: #fff; } } }
+}
+}
