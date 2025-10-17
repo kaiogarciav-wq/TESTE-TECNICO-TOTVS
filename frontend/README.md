@@ -1,27 +1,144 @@
-# MyApp
+# 🛒 Full Stack E-commerce Demo — .NET 8 + Angular 12
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.18.
+Aplicação **full stack** desenvolvida como **teste técnico TOTVS**, simulando um **e-commerce simplificado** com autenticação **JWT**, cadastro de produtos e operações **CRUD completas**.  
 
-## Development server
+O projeto segue **práticas modernas de engenharia de software**, priorizando **Clean Architecture**, **desacoplamento**, **segurança** e **Developer Experience (DX)**.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+---------------------------------------------------------------------------------
 
-## Code scaffolding
+## 🚀 Stack Técnica
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Backend (.NET 8)
+- **ASP.NET Core Web API (.NET 8)**
+- **Entity Framework Core (InMemory Database)**
+- **Autenticação JWT**
+- **Clean Architecture + SOLID**
+- **Camadas desacopladas:** Controller → Service → Repository
+- **Swagger UI** para documentação da API
+- **Middleware** para autenticação e tratamento centralizado de erros
 
-## Build
+### Frontend (Angular 12)
+- **Angular 12 + TypeScript + RxJS**
+- **Formulários Reativos (Reactive Forms)**
+- **Consumo de API RESTful via HttpClient**
+- **AuthGuard com JWT**
+- **Design modular e componentizado**
+- **Feedback visual e validação em tempo real**
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+---------------------------------------------------------------------------------
 
-## Running unit tests
+## 🔐 Autenticação e Segurança
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- Baseada em **JWT** — token gerado no login e enviado automaticamente via **HTTP Interceptor**.  
 
-## Running end-to-end tests
+**Rotas:**
+- Públicas: `/login`  
+- Autenticadas: `/products`, `/auth/profile`  
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+**Header padrão:**  
+```http
+Authorization: Bearer <seu_token_aqui>
+```
 
-## Further help
+---------------------------------------------------------------------------------
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## 🛠️ Execução Local
+
+### 1️⃣ Clonar o repositório
+```bash
+git clone https://github.com/seu-usuario/nome-do-projeto.git
+cd nome-do-projeto
+```
+
+### 2️⃣ Backend
+```bash
+cd backend
+dotnet restore
+dotnet run
+```
+API disponível em:
+- `https://localhost:5138`  
+
+### 3️⃣ Frontend
+```bash
+cd ../frontend
+npm install
+ng serve
+```
+Aplicação disponível em:
+- `http://localhost:4200`
+
+---------------------------------------------------------------------------------
+
+## 💾 Banco de Dados
+
+- **Entity Framework Core InMemory** apenas para fins de teste técnico.  
+- Dados persistem apenas durante a execução e são resetados a cada restart do servidor.
+
+------------------------------------------------------------------------------------
+
+## 🧱 Estrutura de Pastas
+
+### Backend (.NET)
+```
+backend/
+├── Controllers/
+├── Domain/
+├── Infrastructure/
+├── Profiles/
+├── Properties/
+└── Program.cs
+```
+
+### Frontend (Angular)
+```
+frontend/
+├── src/
+│   ├── app/
+│   │   ├── core/
+│   │   ├── auth/
+│   │   ├── products/
+│   │   └── shared/
+│   ├── assets/
+│   └── environments/
+```
+
+---------------------------------------------------------------------------------
+
+## 🧪 Boas Práticas Aplicadas
+- Princípios **SOLID**
+- **Clean Code**
+- **Injeção de Dependência**
+- **Separação de responsabilidades**
+- **Tratamento de erros centralizado**
+- **Tipagem forte e interfaces explícitas no Angular**
+- **Estrutura modular e padronização de commits**
+
+---------------------------------------------------------------------------------
+
+## 📚 API Endpoints (Exemplo)
+
+| Método | Endpoint | Descrição | Auth |
+|--------|----------|-----------|------|
+| POST   | /api/auth/register | Registro e geração de token | ✅ |
+| POST   | /api/auth/login | Login e geração de token | ✅ |
+| GET    | /api/products | Lista produtos | ✅ |
+| POST   | /api/products | Cria produto | ✅ |
+| PUT    | /api/products/{id} | Atualiza produto | ✅ |
+| DELETE | /api/products/{id} | Exclui produto | ✅ |
+
+---------------------------------------------------------------------------------
+
+## 📈 Considerações Finais
+
+Este projeto demonstra competência técnica **full stack** e aplicação de **boas práticas** de arquitetura e design de software.  
+A integração entre **.NET 8** e **Angular 12** foi construída com foco em **segurança**, **claridade de código** e **escalabilidade**, refletindo um **mindset moderno de engenharia**.
+
+---------------------------------------------------------------------------------
+
+✨ Autor
+
+**Kaio Vinicius de Oliveira Garcia**  
+👨‍💻 Software Engineer | Fullstack Developer (.NET / Angular /Nextjs / Reactjs / Nodejs)  
+🔗 LinkedIn: https://www.linkedin.com/in/kaiogarcia/?locale=pt_BR
+📧 kaiogarcia.dev@gmail.com
