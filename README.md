@@ -46,7 +46,7 @@ Authorization: Bearer <seu_token_aqui>
 
 ### 1️⃣ Clonar o repositório
 ```bash
-git clone https://github.com/seu-usuario/nome-do-projeto.git
+git clone https://github.com/kaiogarciav-wq/TESTE-TECNICO-TOTVS
 cd nome-do-projeto
 ```
 
