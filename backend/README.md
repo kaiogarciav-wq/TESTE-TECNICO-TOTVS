@@ -141,4 +141,5 @@ A integração entre **.NET 8** e **Angular 12** foi construída com foco em **s
 **Kaio Vinicius de Oliveira Garcia**  
 👨‍💻 Software Engineer | Fullstack Developer (.NET / Angular /Nextjs / Reactjs / Nodejs)  
 🔗 LinkedIn: https://www.linkedin.com/in/kaiogarcia/?locale=pt_BR
-📧 kaiogarcia.dev@gmail.com
+📧 kaiovogarcia@gmail.com
+
