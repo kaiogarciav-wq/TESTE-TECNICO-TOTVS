@@ -57,8 +57,7 @@ dotnet restore
 dotnet run
 ```
 API disponível em:
-- `https://localhost:5001`  
-- `http://localhost:5136`
+- http://localhost:5138
 
 ### 3️⃣ Frontend
 ```bash
@@ -142,5 +141,5 @@ A integração entre **.NET 8** e **Angular 12** foi construída com foco em **s
 
 **Kaio Vinicius de Oliveira Garcia**  
 👨‍💻 Software Engineer | Fullstack Developer (.NET / Angular /Nextjs / Reactjs / Nodejs)  
-🔗 LinkedIn  
+🔗 LinkedIn: https://www.linkedin.com/in/kaiogarcia/?locale=pt_BR
 📧 kaiogarcia.dev@gmail.com
